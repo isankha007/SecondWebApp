@@ -27,18 +27,22 @@ public class MyServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out= response.getWriter();
-		out.print("Hello Service Method Called");  
+		out.print("<h1>Hello Service Method Called</h1>");  
 	}
-
+*/
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	//	response.getWriter().append("Served at: ").append(request.getContextPath());
+		String name = request.getParameter("fname");
+		PrintWriter out= response.getWriter();
+		out.print("Hello DoGet Method Called");
+		out.print("<br/>Hello "+name);
 	}
 
 	/**
@@ -46,7 +50,11 @@ public class MyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+	//	doGet(request, response);
+		PrintWriter out= response.getWriter();
+		String name = request.getParameter("fname");
+		out.print("Hello DoPost Method Called"); 
+		out.print("<br/>Hello "+name);
 	}
 
 }
